@@ -1,13 +1,18 @@
 package edu.appstate.huk.pocketturchin2;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import edu.appstate.huk.pocketturchin2.dummy.DummyContent;
 
@@ -58,10 +63,11 @@ public class PieceDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.piece_detail, container, false);
-
-        // Show the dummy content as text in a TextView.
+        TextView detailView = rootView.findViewById(R.id.piece_detail);
+        ImageView pictureView = rootView.findViewById(R.id.piece_picture);
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.piece_detail)).setText(mItem.description);
+            detailView.setText(mItem.description);
+            pictureView.setImageResource(R.drawable.ic_picnic);
         }
 
         return rootView;

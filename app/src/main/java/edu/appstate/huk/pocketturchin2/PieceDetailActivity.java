@@ -26,6 +26,7 @@ public class PieceDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
+        //This is that button, we should make this the favorites button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,8 @@ public class PieceDetailActivity extends AppCompatActivity {
                     .add(R.id.piece_detail_container, fragment)
                     .commit();
         }
+
+
     }
 
     @Override
