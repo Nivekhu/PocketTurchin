@@ -69,6 +69,7 @@ public class PieceDetailFragment extends Fragment {
             detailView.setText(mItem.description);
             pictureView.setImageResource(R.drawable.ic_picnic);
         }
+        Log.d("K","This is the createview stuff");
 
         return rootView;
     }
