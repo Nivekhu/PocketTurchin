@@ -2,6 +2,9 @@ package edu.appstate.huk.pocketturchin2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -97,6 +100,12 @@ public class PieceListActivity extends AppCompatActivity {
             holder.mIdView.setText(mValues.get(position).id);
             holder.mTitleView.setText(mValues.get(position).title);
             holder.mArtistView.setText(mValues.get(position).artist);
+
+            Drawable a = getResources().getDrawable(mValues.get(position).picture);
+            BitmapDrawable b = (BitmapDrawable) a;
+            Bitmap c = Bitmap.createScaledBitmap(b.getBitmap(),100,100,false);
+            holder.mThumbnailView.setImageBitmap(c);
+
             holder.mFavoriteView.setImageResource(ic_favorite);
             holder.mFavoriteView.setVisibility(mValues.get(position).favorite ? View.VISIBLE : View.GONE);
 
@@ -135,6 +144,7 @@ public class PieceListActivity extends AppCompatActivity {
             public final TextView mTitleView;
             public final TextView mArtistView;
             public final ImageView mFavoriteView;
+            public final ImageView mThumbnailView;
             public Art.ArtItem mItem;
 
             public ViewHolder(View view) {
@@ -143,6 +153,7 @@ public class PieceListActivity extends AppCompatActivity {
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mTitleView = (TextView) view.findViewById(R.id.title);
                 mArtistView = (TextView) view.findViewById(R.id.artist);
+                mThumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
                 mFavoriteView = (ImageView) view.findViewById(R.id.piece_favorite);
             }
 

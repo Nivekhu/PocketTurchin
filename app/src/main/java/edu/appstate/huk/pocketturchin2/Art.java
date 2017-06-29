@@ -27,7 +27,7 @@ public class Art {
         ArtItem test2 = new ArtItem("1B","Dinner","That Guy");
         test2.addDescription("A fantastic piece done by the very well known artist 'That Guy'");
         test2.addPicture(R.drawable.ic_picnic);
-        test2.addFavorite(false);
+        test2.addFavorite(true);
 
         addItem(test1);
         addItem(test2);

@@ -56,7 +56,7 @@ public class PieceDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.title + "Created by: " + mItem.artist);
+                appBarLayout.setTitle(mItem.title);
             }
         }
     }
@@ -65,11 +65,18 @@ public class PieceDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.piece_detail, container, false);
+        TextView artistView = rootView.findViewById(R.id.piece_artist);
         TextView detailView = rootView.findViewById(R.id.piece_detail);
         ImageView pictureView = rootView.findViewById(R.id.piece_picture);
         CheckBox favoriteBox = rootView.findViewById(R.id.piece_favorite);
 
         if (mItem != null) {
+
+            artistView.setText("Created By: " + mItem.artist);
+            detailView.setText(mItem.description);
+
+            pictureView.setImageResource(mItem.picture);
+
             favoriteBox.setChecked(mItem.favorite);
             favoriteBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -78,8 +85,6 @@ public class PieceDetailFragment extends Fragment {
                     mItem.favorite = isChecked;
                 }
             });
-            detailView.setText(mItem.description);
-            pictureView.setImageResource(mItem.picture);
         }
         return rootView;
     }
