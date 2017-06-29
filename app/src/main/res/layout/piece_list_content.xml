@@ -31,4 +31,9 @@
             android:textAppearance="?attr/textAppearanceListItem"/>
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/piece_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

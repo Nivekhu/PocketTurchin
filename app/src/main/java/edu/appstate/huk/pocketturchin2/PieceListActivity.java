@@ -12,12 +12,15 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import edu.appstate.huk.pocketturchin2.Art;
 
 import java.util.List;
+
+import static edu.appstate.huk.pocketturchin2.R.drawable.ic_favorite;
 
 /**
  * An activity representing a list of Pieces. This activity
@@ -94,6 +97,8 @@ public class PieceListActivity extends AppCompatActivity {
             holder.mIdView.setText(mValues.get(position).id);
             holder.mTitleView.setText(mValues.get(position).title);
             holder.mArtistView.setText(mValues.get(position).artist);
+            holder.mFavoriteView.setImageResource(ic_favorite);
+            holder.mFavoriteView.setVisibility(mValues.get(position).favorite ? View.VISIBLE : View.GONE);
 
 
             //The onClick stuff, we shouldn't have to edit this
@@ -129,6 +134,7 @@ public class PieceListActivity extends AppCompatActivity {
             public final TextView mIdView;
             public final TextView mTitleView;
             public final TextView mArtistView;
+            public final ImageView mFavoriteView;
             public Art.ArtItem mItem;
 
             public ViewHolder(View view) {
@@ -137,6 +143,7 @@ public class PieceListActivity extends AppCompatActivity {
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mTitleView = (TextView) view.findViewById(R.id.title);
                 mArtistView = (TextView) view.findViewById(R.id.artist);
+                mFavoriteView = (ImageView) view.findViewById(R.id.piece_favorite);
             }
 
             @Override

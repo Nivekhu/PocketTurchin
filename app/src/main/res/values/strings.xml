@@ -2,4 +2,5 @@
     <string name="app_name">Pocket Turchin</string>
     <string name="title_piece_detail">Piece Detail</string>
     <string name="piece_artist">Artist</string>
+    <string name="piece_favorite">Favored Work</string>
 </resources>

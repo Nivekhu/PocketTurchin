@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,7 +56,7 @@ public class PieceDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.title);
+                appBarLayout.setTitle(mItem.title + "Created by: " + mItem.artist);
             }
         }
     }
@@ -65,12 +67,20 @@ public class PieceDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.piece_detail, container, false);
         TextView detailView = rootView.findViewById(R.id.piece_detail);
         ImageView pictureView = rootView.findViewById(R.id.piece_picture);
+        CheckBox favoriteBox = rootView.findViewById(R.id.piece_favorite);
+
         if (mItem != null) {
+            favoriteBox.setChecked(mItem.favorite);
+            favoriteBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView,
+                                             boolean isChecked) {
+                    mItem.favorite = isChecked;
+                }
+            });
             detailView.setText(mItem.description);
             pictureView.setImageResource(mItem.picture);
         }
-        Log.d("K","This is the createview stuff");
-
         return rootView;
     }
 }
