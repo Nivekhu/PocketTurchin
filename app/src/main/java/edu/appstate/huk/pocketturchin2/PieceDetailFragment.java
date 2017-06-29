@@ -67,7 +67,7 @@ public class PieceDetailFragment extends Fragment {
         ImageView pictureView = rootView.findViewById(R.id.piece_picture);
         if (mItem != null) {
             detailView.setText(mItem.description);
-            pictureView.setImageResource(R.drawable.picnic);
+            pictureView.setImageResource(mItem.picture);
         }
         Log.d("K","This is the createview stuff");
 

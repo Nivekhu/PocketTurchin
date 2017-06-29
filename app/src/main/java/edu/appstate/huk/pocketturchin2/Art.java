@@ -22,6 +22,8 @@ public class Art {
         test1.addDescription("A beautiful picnic scene is seen in this piece done by" +
                 "the not as well known artist 'Some Guy'.");
         test2.addDescription("A fantastic piece done by the very well known artist 'That Guy'");
+        test1.addPicture(R.drawable.picnic);
+        test2.addPicture(R.drawable.ic_picnic);
         addItem(test1);
         addItem(test2);
 
@@ -42,6 +44,7 @@ public class Art {
         public String title;
         public String artist;
         public String description;
+        public int picture;
 
 
 
@@ -55,6 +58,10 @@ public class Art {
         public void addDescription(String description)
         {
             this.description = description;
+        }
+
+        public void addPicture(int pic) {
+            this.picture = pic;
         }
     }
 }
