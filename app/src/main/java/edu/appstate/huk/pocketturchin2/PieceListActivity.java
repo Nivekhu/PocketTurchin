@@ -1,6 +1,8 @@
 package edu.appstate.huk.pocketturchin2;
 
+import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,9 +14,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,6 +84,43 @@ public class PieceListActivity extends AppCompatActivity {
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+
+        final FloatingActionButton fabSearch = (FloatingActionButton) findViewById(R.id.fabSearch);
+        fabSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final EditText search = (EditText) findViewById(R.id.searchBox);
+                search.setVisibility(View.VISIBLE);
+                fabSearch.setVisibility(View.GONE);
+                search.setOnKeyListener(new View.OnKeyListener()
+                {
+                    String input;
+                    public boolean onKey(View v, int keyCode, KeyEvent event)
+                    {
+                        if (event.getAction() == KeyEvent.ACTION_DOWN)
+                        {
+                            switch (keyCode)
+                            {
+                                case KeyEvent.KEYCODE_ENTER:
+                                    search.setVisibility(View.GONE);
+                                    fabSearch.setVisibility(View.VISIBLE);
+                                    input = search.getText().toString();
+                                    Context context = v.getContext();
+                                    Intent intent = new Intent(context, PieceDetailActivity.class);
+                                    Log.d("k","This is the id inputted = " + input.substring(0,input.length()));
+                                    intent.putExtra(PieceDetailFragment.ARG_ITEM_ID,
+                                            Art.ITEMS.get(Integer.parseInt(input.substring(0,input.length()))-1).id);
+                                    context.startActivity(intent);
+                                default:
+                                    break;
+                            }
+                        }
+                        return false;
+                    }
+
+                });
+            }
+        });
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView, boolean fav) {
@@ -138,7 +180,7 @@ public class PieceListActivity extends AppCompatActivity {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, PieceDetailActivity.class);
                         intent.putExtra(PieceDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-
+                        Log.d("k","the id is = " + holder.mItem.id);
                         context.startActivity(intent);
                     }
                 }

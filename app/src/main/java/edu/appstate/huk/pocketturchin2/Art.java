@@ -15,7 +15,7 @@ public class Art {
 
     //THIS IS WHERE ALL THE ART ITEMS ARE ADDED
     static{
-        ArtItem test1 = new ArtItem("1A","The Picnic","Thomas Cole");
+        ArtItem test1 = new ArtItem("1","The Picnic","Thomas Cole");
         test1.addDescription("A piece painted prior to the 1860s, The piece displays many layers of depth " +
                 "that from the man standing in front of the tree, to the distant mountains the in the background. " +
                 "This sense of depth draws the eye naturally towards the left. This coupled with the colors and activity " +
@@ -24,7 +24,7 @@ public class Art {
         test1.addPicture(R.drawable.picnic);
         test1.addFavorite(false);
 
-        ArtItem test2 = new ArtItem("1B","Dinner","That Guy");
+        ArtItem test2 = new ArtItem("2","Dinner","That Guy");
         test2.addDescription("A fantastic piece done by the very well known artist 'That Guy'");
         test2.addPicture(R.drawable.ic_picnic);
         test2.addFavorite(false);
