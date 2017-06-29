@@ -85,6 +85,14 @@ public class PieceListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
 
+        FloatingActionButton fabAbout = (FloatingActionButton) findViewById(R.id.fabAbout);
+        fabAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.about);
+            }
+        });
+
         final FloatingActionButton fabSearch = (FloatingActionButton) findViewById(R.id.fabSearch);
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override

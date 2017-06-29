@@ -3,4 +3,10 @@
     <string name="title_piece_detail">Piece Detail</string>
     <string name="piece_artist">Artist</string>
     <string name="piece_favorite">Favored Work</string>
+    <string name="about_credit">Copyright 2017, Kevin Hu
+            Student, Appalachian State University
+            CS 3240 Mobile Device Programming Project
+    </string>
+    <string name="about_info">The Turchin Center for the Visual Arts at Appalachian State University engages visitors from the university, community, nation and beyond in creating unique experiences through dynamic and accessible exhibition, education, outreach and collection programs. These programs inspire and support a lifelong engagement with the visual arts and create opportunities for participants to learn more about themselves and the world around them.</string>
+
 </resources>
