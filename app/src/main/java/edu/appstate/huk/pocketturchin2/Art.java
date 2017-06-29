@@ -23,11 +23,11 @@ public class Art {
                 "while also conveying a sense of concise scenery.");
         test1.addPicture(R.drawable.picnic);
         test1.addFavorite(false);
+        test1.addAudio(R.raw.chinese_noises);
 
-        ArtItem test2 = new ArtItem("2","Dinner","That Guy");
-        test2.addDescription("A fantastic piece done by the very well known artist 'That Guy'");
-        test2.addPicture(R.drawable.ic_picnic);
-        test2.addFavorite(false);
+        ArtItem test2 = new ArtItem("2","Dinner","Andrew Rea");
+        test2.addDescription("Wonderfully crafted ribs by famed youtube channel binging with Babish");
+        test2.addPicture(R.drawable.ribs2);
 
         addItem(test1);
         addItem(test2);
@@ -54,6 +54,7 @@ public class Art {
         public String description;
         public boolean favorite;
         public int picture;
+        public int audio;
 
 
 
@@ -71,6 +72,11 @@ public class Art {
 
         public void addPicture(int pic) {
             this.picture = pic;
+        }
+
+        public void addAudio(int audio)
+        {
+            this.audio = audio;
         }
 
         public void addFavorite(boolean f)

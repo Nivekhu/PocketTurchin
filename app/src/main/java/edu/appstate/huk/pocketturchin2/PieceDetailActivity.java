@@ -1,6 +1,7 @@
 package edu.appstate.huk.pocketturchin2;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,11 +29,20 @@ public class PieceDetailActivity extends AppCompatActivity {
 
         //This is that button in the detail list, we should make this the favorites button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final boolean[] playing = {false};
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.chinese_noises);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if(!playing[0]) {
+                    mp.start();
+                    playing[0] = true;
+                }
+                else if(playing[0]){
+                    mp.stop();
+                    playing[0] = false;
+                }
+
             }
         });
 
