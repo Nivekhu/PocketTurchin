@@ -44,6 +44,7 @@ public class Art {
         public String description;
 
 
+
         public ArtItem(String id, String title, String artist) {
             this.id = id;
             this.title = title;
