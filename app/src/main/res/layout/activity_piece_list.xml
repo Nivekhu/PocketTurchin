@@ -36,7 +36,32 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_favorite" />
+
+    <EditText
+        android:id="@+id/searchBox"
+        android:visibility="gone"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_width="@dimen/item_width"
+        android:layout_height="wrap_content"
+        android:hint="Enter the id number"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_search" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_about" />
 
 
 </android.support.design.widget.CoordinatorLayout>
