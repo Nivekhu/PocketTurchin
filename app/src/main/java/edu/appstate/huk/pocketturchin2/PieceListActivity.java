@@ -40,7 +40,7 @@ public class PieceListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
-
+    private boolean favorite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +54,23 @@ public class PieceListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                View recyclerView = findViewById(R.id.piece_list);
+                assert recyclerView != null;
+                if(!favorite) {
+                    favorite = true;
+                    setupRecyclerView((RecyclerView) recyclerView, favorite);
+                }
+                else if(favorite)
+                {
+                    favorite = false;
+                    setupRecyclerView((RecyclerView) recyclerView, favorite);
+                }
             }
         });
 
         View recyclerView = findViewById(R.id.piece_list);
         assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
+        setupRecyclerView((RecyclerView) recyclerView, favorite);
 
         if (findViewById(R.id.piece_detail_container) != null) {
             // The detail container view will be present only in the
@@ -72,8 +81,11 @@ public class PieceListActivity extends AppCompatActivity {
         }
     }
 
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(Art.ITEMS));
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView, boolean fav) {
+        if(fav)
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(Art.FAVITEMS));
+        else
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(Art.ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter

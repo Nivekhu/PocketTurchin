@@ -83,6 +83,10 @@ public class PieceDetailFragment extends Fragment {
                 public void onCheckedChanged(CompoundButton buttonView,
                                              boolean isChecked) {
                     mItem.favorite = isChecked;
+                    if(isChecked)
+                        Art.FAVITEMS.add(mItem);
+                    else if(!isChecked)
+                        Art.FAVITEMS.remove(mItem);
                 }
             });
         }

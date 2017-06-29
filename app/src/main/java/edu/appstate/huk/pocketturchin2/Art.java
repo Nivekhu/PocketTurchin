@@ -9,7 +9,7 @@ import java.util.Map;
 public class Art {
 
     public static final List<ArtItem> ITEMS = new ArrayList<ArtItem>();
-    public static final List<String> FAVITEMS = new ArrayList<String>();
+    public static final List<ArtItem> FAVITEMS = new ArrayList<ArtItem>();
 
     public static final Map<String, ArtItem> ITEM_MAP = new HashMap<String, ArtItem>();
 
@@ -27,7 +27,7 @@ public class Art {
         ArtItem test2 = new ArtItem("1B","Dinner","That Guy");
         test2.addDescription("A fantastic piece done by the very well known artist 'That Guy'");
         test2.addPicture(R.drawable.ic_picnic);
-        test2.addFavorite(true);
+        test2.addFavorite(false);
 
         addItem(test1);
         addItem(test2);
@@ -37,6 +37,10 @@ public class Art {
     private static void addItem(ArtItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
+    }
+
+    private static void addFav(ArtItem item) {
+        FAVITEMS.add(item);
     }
 
 
